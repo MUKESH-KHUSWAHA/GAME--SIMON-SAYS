@@ -22,15 +22,54 @@ function updateHighScoreDisplay() {
 }
 updateHighScoreDisplay();
 
+const startBtn = document.getElementById('start-btn');
+
+function isMobile() {
+    return /Mobi|Android/i.test(navigator.userAgent);
+}
+
+function showStartBtn() {
+    if (isMobile()) {
+        startBtn.style.display = 'inline-block';
+    } else {
+        startBtn.style.display = 'none';
+    }
+}
+function hideStartBtn() {
+    startBtn.style.display = 'none';
+}
+
+function startGame() {
+    if (!started) {
+        started = true;
+        hideStartBtn();
+        levelUp();
+    }
+}
+
+// Show button on load if not started and on mobile
+if (!started) {
+    showStartBtn();
+}
+
+// Start game on button click (mobile only)
+startBtn.addEventListener('click', function() {
+    if (isMobile()) startGame();
+});
+
+// Start game on keydown (desktop)
 document.addEventListener("keydown", function (e) {
     if (e.key.toLowerCase() === 'n') {
         alert(`Highest Score: ${highScore}`);
         return;
     }
-    if (!started) {
-        console.log("game started");
-        started = true;
-        levelUp();
+    startGame();
+});
+
+// Update h2 for mobile users
+document.addEventListener('DOMContentLoaded', function() {
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        h2.innerText = 'Tap "Start Game" to begin';
     }
 });
 
@@ -95,6 +134,7 @@ function reset() {
     gameSeq = [];
     userSeq = [];
     level = 0;
+    showStartBtn();
 }
 
 // Toggle instructions box
