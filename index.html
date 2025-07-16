@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="high-score">Highest Score: 0</div>
+    <h1>Simon Game</h1>
+    <h2>press any key to start the Game</h2>
+    <div style="margin-bottom: 1.5rem;">
+        <label for="mode-select" style="font-weight:bold; font-size:1.1rem;">Mode: </label>
+        <select id="mode-select">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+    </div>
+    <button id="toggle-instructions-btn" style="margin-bottom: 0.7rem; font-size:1rem; font-weight:bold; border-radius:8px; border:2px solid #43c6ac; background:#fff; color:#43c6ac; padding:0.5rem 1.2rem; cursor:pointer; transition:background 0.2s;">Show Instructions</button>
+    <div class="instructions" style="display:none;">
+        <h3>How to Play</h3>
+        <ul>
+            <li>Press any key to start the game.</li>
+            <li>Watch the sequence of flashing colors.</li>
+            <li>Repeat the sequence by clicking the colored buttons in order.</li>
+            <li>Each level adds a new color to the sequence.</li>
+            <li>If you make a mistake, the game ends and your score is shown.</li>
+            <li>Try to beat your highest score!</li>
+            <li>Press <b>N</b> to view the highest score at any time.</li>
+            <li>Change the mode for different difficulty levels.</li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="btn-container">
+            <div class="line-one">
+                <div class="btn red" type="button" id="red">1</div>
+                <div class="btn yellow" type="button" id="yellow">2</div>
+            </div>
+            <div class="line-two">
+                <div class="btn green" type="button" id="green">3</div>
+                <div class="btn purple" type="button" id="purple">4</div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

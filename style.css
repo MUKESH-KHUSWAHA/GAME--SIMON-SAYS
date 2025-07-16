@@ -1,0 +1,234 @@
+body{
+    text-align: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 100vw;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+#high-score, .instructions, .container {
+    max-width: 98vw;
+    box-sizing: border-box;
+}
+
+.container {
+    background: rgba(255,255,255,0.85);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    display: inline-block;
+    padding: 2rem 3vw 2.5rem 3vw;
+    margin-top: 1rem;
+    max-width: 95vw;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-top: 2rem;
+    color: #333;
+    letter-spacing: 2px;
+    text-shadow: 1px 2px 8px #fff8;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+#high-score {
+    font-size: 1.6rem;
+    color: #fff;
+    background: linear-gradient(90deg, #43c6ac 0%, #f8ffae 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 2.2rem;
+    box-shadow: 0 4px 24px #43c6ac44;
+    margin: 2.2rem auto 1.2rem auto;
+    font-weight: bold;
+    max-width: 350px;
+    letter-spacing: 1px;
+    gap: 0.7rem;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#high-score::before {
+    content: "🏆";
+    font-size: 2rem;
+    margin-right: 0.7rem;
+    filter: drop-shadow(0 2px 4px #0002);
+}
+
+.btn-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.line-one, .line-two {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.btn {
+    height: 140px;
+    width: 140px;
+    border-radius: 20%;
+    border: 6px solid #222;
+    margin: 1.5rem;
+    font-size: 2rem;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 16px #0002;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+    outline: none;
+    user-select: none;
+    max-width: 40vw;
+    max-height: 40vw;
+    min-width: 80px;
+    min-height: 80px;
+}
+.btn:hover, .btn:active {
+    filter: brightness(1.15) saturate(1.2);
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px #0003;
+}
+
+.red {
+    background-color: #d95980;
+}
+
+.yellow {
+    background-color: #f99b45;
+}
+
+.purple {
+    background-color: #7e3c8a;
+}
+
+.green {
+    background-color: #63aac0;
+}
+
+.flash {
+    background-color: white !important;
+    color: #333 !important;
+    box-shadow: 0 0 24px #fff8;
+}
+
+@keyframes levelPop {
+    0% { transform: scale(1); color: #555; }
+    30% { transform: scale(1.25); color: #43c6ac; }
+    60% { transform: scale(0.95); color: #f99b45; }
+    100% { transform: scale(1); color: #555; }
+}
+
+h2.level-up {
+    animation: levelPop 0.5s cubic-bezier(0.4, 2, 0.6, 1) 1;
+}
+
+.instructions {
+    background: rgba(255,255,255,0.92);
+    border: 2px solid #43c6ac;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px #43c6ac22;
+    max-width: 500px;
+    margin: 0 auto 1.5rem auto;
+    padding: 1.2rem 1.5rem 1.2rem 1.5rem;
+    text-align: left;
+    font-size: 1.08rem;
+    color: #333;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    padding: 1rem 2vw;
+}
+.instructions h3 {
+    margin-top: 0;
+    color: #43c6ac;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+.instructions ul {
+    padding-left: 1.2rem;
+    margin: 0;
+}
+.instructions li {
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
+}
+
+/* Responsive styles */
+@media (max-width: 700px) {
+    .container {
+        padding: 1rem 1vw 1.5rem 1vw;
+        margin-top: 0.5rem;
+        max-width: 100vw;
+    }
+    h1 {
+        font-size: 2rem;
+        margin-top: 1rem;
+    }
+    #high-score {
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+        max-width: 90vw;
+    }
+    .btn {
+        height: 18vw;
+        width: 18vw;
+        min-width: 60px;
+        min-height: 60px;
+        font-size: 1.1rem;
+        margin: 0.7rem;
+    }
+    .instructions {
+        max-width: 99vw;
+        padding: 0.7rem 1vw;
+        font-size: 0.98rem;
+    }
+    .instructions h3 {
+        font-size: 1.05rem;
+    }
+}
+@media (max-width: 450px) {
+    .container {
+        padding: 0.5rem 0.5vw 1rem 0.5vw;
+        margin-top: 0.2rem;
+    }
+    h1 {
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+    }
+    #high-score {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.5rem;
+    }
+    .btn {
+        height: 22vw;
+        width: 22vw;
+        min-width: 40px;
+        min-height: 40px;
+        font-size: 0.8rem;
+        margin: 0.3rem;
+    }
+    .instructions {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.5vw;
+    }
+}
